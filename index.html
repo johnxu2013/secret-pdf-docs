@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Secret PDF - The most powerful PDF toolkit for iOS, iPadOS, and macOS. Read, edit, convert, scan, sign, and secure your documents. Developed in New York.">
+    <meta name="keywords" content="PDF, iOS, iPadOS, macOS, document scanner, PDF editor, eSign, watermark, OCR, privacy">
+    <meta name="author" content="Secret PDF">
+    <title>Secret PDF - Professional PDF Toolkit</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --accent: #667EEA;
+            --accent-dark: #764BA2;
+            --text-primary: #1A1A1A;
+            --text-secondary: #6B7280;
+            --text-tertiary: #9CA3AF;
+            --surface: #FFFFFF;
+            --surface-elevated: #F9FAFB;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --gradient-1: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            --gradient-2: linear-gradient(135deg, #F093FB 0%, #F5576C 100%);
+            --gradient-3: linear-gradient(135deg, #4FACFE 0%, #00F2FE 100%);
+            --gradient-4: linear-gradient(135deg, #43E97B 0%, #38F9D7 100%);
+            --gradient-5: linear-gradient(135deg, #FA709A 0%, #FEE140 100%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--surface);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: var(--gradient-1);
+            opacity: 0.08;
+            border-radius: 50%;
+            filter: blur(60px);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: var(--gradient-2);
+            opacity: 0.06;
+            border-radius: 50%;
+            filter: blur(80px);
+        }
+
+        .hero .container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .hero .tagline {
+            font-size: 1rem;
+            color: var(--text-tertiary);
+            margin-bottom: 2rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            background: var(--surface);
+        }
+
+        .features .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .feature-card:nth-child(1) .feature-icon {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        }
+
+        .feature-card:nth-child(2) .feature-icon {
+            background: linear-gradient(135deg, rgba(240, 147, 251, 0.1) 0%, rgba(245, 87, 108, 0.1) 100%);
+        }
+
+        .feature-card:nth-child(3) .feature-icon {
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, rgba(0, 242, 254, 0.1) 100%);
+        }
+
+        .feature-card:nth-child(4) .feature-icon {
+            background: linear-gradient(135deg, rgba(67, 233, 123, 0.1) 0%, rgba(56, 249, 215, 0.1) 100%);
+        }
+
+        .feature-card:nth-child(5) .feature-icon {
+            background: linear-gradient(135deg, rgba(250, 112, 154, 0.1) 0%, rgba(254, 225, 64, 0.1) 100%);
+        }
+
+        .feature-card:nth-child(6) .feature-icon {
+            background: linear-gradient(135deg, rgba(161, 140, 209, 0.1) 0%, rgba(251, 194, 235, 0.1) 100%);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Capabilities Section */
+        .capabilities {
+            padding: 6rem 2rem;
+            background: var(--surface-elevated);
+        }
+
+        .capabilities .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .capabilities-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .capability-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        .capability-item .icon {
+            font-size: 1.5rem;
+        }
+
+        .capability-item span {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Privacy Section */
+        .privacy-highlight {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+        }
+
+        .privacy-highlight .container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .privacy-highlight h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+
+        .privacy-highlight p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .privacy-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .privacy-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px var(--shadow);
+        }
+
+        .privacy-item h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .privacy-item p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            background: var(--text-primary);
+            color: white;
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        footer h4 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        footer .copyright {
+            margin-top: 3rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            grid-column: 1 / -1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .features-grid,
+            .capabilities-list {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">📄 Secret PDF</div>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#capabilities">Capabilities</a></li>
+                <li><a href="#privacy">Privacy</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="tagline">✨ Developed in New York</div>
+            <h1>The Ultimate PDF Toolkit for Apple Devices</h1>
+            <p class="subtitle">
+                Read · Edit · Convert · Scan · eSign · Watermark · Merge · OCR · Redact · Mystify<br>
+                Everything you need to work with PDFs, completely private and local.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://apps.apple.com" class="btn btn-primary">Download on App Store</a>
+                <a href="#features" class="btn btn-secondary">Explore Features</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Powerful Features, Beautiful Design</h2>
+                <p>Everything you need to manage your PDFs, designed with privacy and performance in mind.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>Advanced PDF Reading</h3>
+                    <p>Smooth scrolling, night mode, annotations, highlights, and bookmarks. The best PDF reading experience on iOS.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✍️</div>
+                    <h3>Professional Editing</h3>
+                    <p>Add text, images, shapes, and drawings. Rotate, crop, and reorder pages with intuitive gestures.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📸</div>
+                    <h3>Document Scanner</h3>
+                    <p>Transform photos and scanned documents into crisp, professional PDFs with automatic edge detection and enhancement.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✒️</div>
+                    <h3>Digital Signatures</h3>
+                    <p>Create, save, and apply your signature to any document. Legally binding and tamper-proof.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Security & Privacy</h3>
+                    <p>Password protection, redaction, encryption, and mystify features. Your documents stay completely private.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI Assistant</h3>
+                    <p>Intelligent OCR, text extraction, summarization, and document analysis powered by on-device AI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section id="capabilities" class="capabilities">
+        <div class="container">
+            <div class="section-header">
+                <h2>Complete PDF Workflow</h2>
+                <p>Every tool you need, all in one beautifully designed app.</p>
+            </div>
+            <div class="capabilities-list">
+                <div class="capability-item">
+                    <span class="icon">📖</span>
+                    <span>PDF Reader</span>
+                </div>
+                <div class="capability-item">
+                    <span class="icon">✏️</span>
+                    <span>Text Editor</span>
+                </div>
+                <div class="capability-item">
+                    <span class="icon">🔄</span>
+                    <span>Format Converter</span>
+                </div>
+                <div class="capability-item">
+                    <span class="icon">📷</span>
+                    <span>Cam Scanner</span>
+                </div>
+                <div class="capability-item">
+                    <span class="icon">🖊️</span>
+                    <span>eSignature</span>
+                </div>
+                <div class="capability-item">
+                    <span class="icon">💧</span>
+                    <span>Watermarking</span>
+                </div>
+                <div class="capability-item">
+                    <span class="icon">🔗</span>
+                    <span>PDF Merger</span>
+                </div>
+                <div class="capability-item">
+                    <span class="icon">✂️</span>
+                    <span>Page Splitter</span>
+                </div>
+                <div class="capability-item">
+                    <span class="icon">🔍</span>
+                    <span>OCR Engine</span>
+                </div>
+                <div class="capability-item">
+                    <span class="icon">🖤</span>
+                    <span>Redaction</span>
+                </div>
+                <div class="capability-item">
+                    <span class="icon">🌀</span>
+                    <span>Mystify Text</span>
+                </div>
+                <div class="capability-item">
+                    <span class="icon">📊</span>
+                    <span>Form Filling</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Section -->
+    <section id="privacy" class="privacy-highlight">
+        <div class="container">
+            <h2>Privacy First, Always</h2>
+            <p>Your documents are yours alone. Secret PDF processes everything on your device with zero cloud uploads, no data collection, and complete offline capability.</p>
+            <div class="privacy-features">
+                <div class="privacy-item">
+                    <h3>🔒 100% Local Processing</h3>
+                    <p>All operations happen on your device. Nothing leaves your iPhone, iPad, or Mac.</p>
+                </div>
+                <div class="privacy-item">
+                    <h3>🚫 No Analytics</h3>
+                    <p>We don't track you, collect data, or monitor your usage. Ever.</p>
+                </div>
+                <div class="privacy-item">
+                    <h3>✈️ Fully Offline</h3>
+                    <p>Works completely without internet. Your privacy is guaranteed.</p>
+                </div>
+                <div class="privacy-item">
+                    <h3>🛡️ Encrypted Storage</h3>
+                    <p>Documents are encrypted using industry-standard AES-256 encryption.</p>
+                </div>
+            </div>
+            <a href="privacy.html" class="btn btn-primary" style="margin-top: 2rem;">Read Full Privacy Policy</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div>
+                <h4>Secret PDF</h4>
+                <p style="color: rgba(255, 255, 255, 0.7);">The most powerful PDF toolkit for iOS, iPadOS, and macOS. Developed with ❤️ in New York.</p>
+            </div>
+            <div>
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#capabilities">Capabilities</a></li>
+                    <li><a href="#privacy">Privacy</a></li>
+                    <li><a href="https://apps.apple.com">Download</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="privacy.html#data">Data Collection</a></li>
+                    <li><a href="privacy.html#security">Security</a></li>
+                    <li><a href="mailto:support@secretpdf.app">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="mailto:xixu@yahoo.com">Email Support</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#docs">Documentation</a></li>
+                    <li><a href="#feedback">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                © 2026 Secret PDF AI. All rights reserved. Made in New York, NY.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
