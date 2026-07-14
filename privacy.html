@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy for Secret PDF - Your privacy is our priority. Learn how we protect your data with 100% local processing and zero tracking.">
+    <meta name="keywords" content="privacy policy, data protection, PDF app, encryption, local processing">
+    <meta name="author" content="Secret PDF">
+    <title>Privacy Policy - Secret PDF</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --accent: #667EEA;
+            --accent-dark: #764BA2;
+            --text-primary: #1A1A1A;
+            --text-secondary: #6B7280;
+            --text-tertiary: #9CA3AF;
+            --surface: #FFFFFF;
+            --surface-elevated: #F9FAFB;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --gradient-1: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            --success: #43E97B;
+            --warning: #FEE140;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--surface);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        nav .back-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 600;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav .back-link:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero .last-updated {
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-tertiary);
+            font-weight: 600;
+        }
+
+        /* Main Content */
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Quick Summary Cards */
+        .quick-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .summary-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px var(--shadow);
+            text-align: center;
+        }
+
+        .summary-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .summary-card h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+        }
+
+        .summary-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Section Styling */
+        .policy-section {
+            margin-bottom: 3rem;
+            scroll-margin-top: 100px;
+        }
+
+        .policy-section h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .policy-section h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .policy-section p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .policy-section ul, 
+        .policy-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .policy-section li {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
+            line-height: 1.8;
+        }
+
+        .policy-section strong {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Highlight Boxes */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h4 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            color: var(--accent);
+        }
+
+        .highlight-box p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Success Box */
+        .success-box {
+            background: rgba(67, 233, 123, 0.1);
+            border-left: 4px solid var(--success);
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .success-box h4 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            color: var(--success);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        .toc h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .toc ul {
+            list-style: none;
+            margin: 0;
+        }
+
+        .toc li {
+            margin-bottom: 0.8rem;
+        }
+
+        .toc a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .toc a:hover {
+            color: var(--accent-dark);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px var(--shadow);
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .contact-section h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .contact-section a {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--gradient-1);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .contact-section a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            background: var(--text-primary);
+            color: white;
+            margin-top: 4rem;
+        }
+
+        footer .container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            color: #667EEA;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.05rem;
+            }
+
+            .policy-section h2 {
+                font-size: 1.6rem;
+            }
+
+            .policy-section h3 {
+                font-size: 1.2rem;
+            }
+
+            nav .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .quick-summary {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="webindex.html" class="logo">📄 Secret PDF</a>
+            <a href="webindex.html" class="back-link">
+                <span>←</span>
+                <span>Back to Home</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Privacy Policy</h1>
+        <p>Your privacy is not just important to us—it's fundamental to how we built Secret PDF.</p>
+        <p class="last-updated">Last Updated: July 14, 2026</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Quick Summary -->
+        <div class="quick-summary">
+            <div class="summary-card">
+                <div class="icon">🔒</div>
+                <h3>Zero Data Collection</h3>
+                <p>We don't collect, store, or transmit any of your personal data or documents.</p>
+            </div>
+            <div class="summary-card">
+                <div class="icon">📱</div>
+                <h3>100% Local Processing</h3>
+                <p>All PDF operations happen entirely on your device. Nothing leaves your iPhone, iPad, or Mac.</p>
+            </div>
+            <div class="summary-card">
+                <div class="icon">✈️</div>
+                <h3>Works Offline</h3>
+                <p>No internet connection required. Your documents stay completely private.</p>
+            </div>
+            <div class="summary-card">
+                <div class="icon">🚫</div>
+                <h3>No Tracking</h3>
+                <p>No analytics, no telemetry, no cookies. We literally don't know how you use the app.</p>
+            </div>
+        </div>
+
+        <div class="success-box">
+            <h4>✅ The Simple Truth</h4>
+            <p>Secret PDF is designed with one principle: <strong>Your documents are yours alone.</strong> We built this app so that we literally cannot access your data, even if we wanted to. Everything happens on your device, and we have zero visibility into what you do with the app.</p>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h3>📋 Table of Contents</h3>
+            <ul>
+                <li><a href="#overview">1. Overview</a></li>
+                <li><a href="#data">2. Data Collection & Usage</a></li>
+                <li><a href="#documents">3. Your Documents</a></li>
+                <li><a href="#security">4. Security & Encryption</a></li>
+                <li><a href="#ai">5. AI Features & Privacy</a></li>
+                <li><a href="#permissions">6. Device Permissions</a></li>
+                <li><a href="#third-party">7. Third-Party Services</a></li>
+                <li><a href="#children">8. Children's Privacy</a></li>
+                <li><a href="#changes">9. Changes to This Policy</a></li>
+                <li><a href="#contact">10. Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Policy Sections -->
+        <section id="overview" class="policy-section">
+            <h2>1. Overview</h2>
+            <p>Secret PDF is a professional PDF toolkit developed for iOS, iPadOS, and macOS. Unlike most modern apps, we take a radically different approach to privacy: <strong>we don't want your data.</strong></p>
+            
+            <p>This privacy policy explains our commitment to your privacy and clarifies exactly what information we do (and don't) collect, use, or share.</p>
+
+            <div class="highlight-box">
+                <h4>🎯 Our Privacy Philosophy</h4>
+                <p>We believe that your documents are private by default. PDF files often contain sensitive information—contracts, financial records, medical documents, personal notes. That's why Secret PDF was engineered from the ground up to process everything locally on your device, with zero cloud dependencies.</p>
+            </div>
+        </section>
+
+        <section id="data" class="policy-section">
+            <h2>2. Data Collection & Usage</h2>
+            
+            <h3>What We Don't Collect</h3>
+            <p>To be absolutely clear, Secret PDF does <strong>NOT</strong> collect, store, process, or transmit:</p>
+            <ul>
+                <li><strong>Personal Information:</strong> No names, email addresses, phone numbers, or any identifying information</li>
+                <li><strong>Document Content:</strong> We never see, store, or transmit the PDFs you work with</li>
+                <li><strong>Usage Analytics:</strong> We don't track how you use the app, which features you use, or how often</li>
+                <li><strong>Device Information:</strong> We don't collect device identifiers, IP addresses, or hardware information</li>
+                <li><strong>Location Data:</strong> We don't access or track your location in any way</li>
+                <li><strong>Browsing History:</strong> We don't track which files you open or what you do with them</li>
+                <li><strong>Crash Reports:</strong> We don't collect crash data or diagnostic information</li>
+                <li><strong>Marketing Data:</strong> We don't build user profiles or track you across apps/websites</li>
+            </ul>
+
+            <h3>What We Might Collect (Optionally)</h3>
+            <p>The only data we may receive is:</p>
+            <ul>
+                <li><strong>App Store Purchase Information:</strong> If you purchase the app or in-app features, Apple processes the transaction. We only receive anonymous confirmation that a purchase occurred, but we don't receive your Apple ID, payment information, or personal details.</li>
+                <li><strong>Support Emails:</strong> If you email us for support at <a href="mailto:xixu@yahoo.com">xixu@yahoo.com</a>, we'll obviously have access to whatever information you choose to include in your message. We only use this to respond to your inquiry and delete it afterward.</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>💡 Why This Matters</h4>
+                <p>Most apps send analytics data back to developers—information about crashes, feature usage, user behavior, etc. While this can help improve apps, it also means your data is being collected and transmitted. We've deliberately chosen not to implement any of these systems. <strong>Your privacy is worth more to us than that data.</strong></p>
+            </div>
+        </section>
+
+        <section id="documents" class="policy-section">
+            <h2>3. Your Documents</h2>
+            
+            <p>Your PDF documents are stored exclusively on your device using the iOS, iPadOS, or macOS file system. Here's what that means:</p>
+
+            <ul>
+                <li><strong>Local Storage Only:</strong> All documents remain on your device. They are never uploaded to our servers (we don't have servers for this purpose).</li>
+                <li><strong>Your Control:</strong> You have complete control over your documents. You can delete them at any time through the app or your device's Files app.</li>
+                <li><strong>iCloud Sync (Optional):</strong> If you enable iCloud Drive, your documents may sync to your other Apple devices through Apple's iCloud service. This is entirely controlled by you through iOS/macOS settings, and we have no access to or visibility into your iCloud data.</li>
+                <li><strong>No Cloud Processing:</strong> Unlike many PDF apps that upload your documents to cloud servers for processing, Secret PDF performs all operations locally on your device—even advanced features like OCR, conversion, and AI analysis.</li>
+            </ul>
+
+            <div class="success-box">
+                <h4>✅ Document Security Guarantee</h4>
+                <p>We guarantee that your documents never leave your device through our app. All reading, editing, conversion, scanning, signing, and AI processing happens 100% locally. There are no exceptions to this rule.</p>
+            </div>
+        </section>
+
+        <section id="security" class="policy-section">
+            <h2>4. Security & Encryption</h2>
+            
+            <p>Secret PDF provides multiple layers of security to protect your documents:</p>
+
+            <h3>Encryption Features</h3>
+            <ul>
+                <li><strong>Password Protection:</strong> You can password-protect any PDF using industry-standard AES-256 encryption. These passwords are stored securely on your device using the iOS/macOS Keychain.</li>
+                <li><strong>Document Encryption:</strong> All encrypted PDFs use AES-256 encryption, the same standard used by governments and financial institutions worldwide.</li>
+                <li><strong>App-Level Security:</strong> You can enable Face ID, Touch ID, or passcode protection for the entire app, preventing unauthorized access even if someone has your device.</li>
+                <li><strong>Redaction & Mystify:</strong> Our redaction feature permanently removes sensitive information from PDFs. The mystify feature allows you to obscure text while keeping documents readable.</li>
+            </ul>
+
+            <h3>Data Protection</h3>
+            <ul>
+                <li><strong>iOS/macOS Security:</strong> Secret PDF leverages Apple's built-in data protection, which automatically encrypts files when your device is locked.</li>
+                <li><strong>Secure Memory:</strong> Sensitive data like passwords and decrypted content is kept in secure memory and cleared immediately after use.</li>
+                <li><strong>No Backdoors:</strong> We don't implement any backdoors or master keys. If you forget a password to an encrypted PDF, we cannot recover it for you.</li>
+            </ul>
+        </section>
+
+        <section id="ai" class="policy-section">
+            <h2>5. AI Features & Privacy</h2>
+            
+            <p>Secret PDF includes AI-powered features like OCR (Optical Character Recognition), text extraction, summarization, and document analysis. Here's how we protect your privacy with AI:</p>
+
+            <h3>On-Device AI Processing</h3>
+            <ul>
+                <li><strong>Local Machine Learning:</strong> All AI features use on-device machine learning models powered by Apple's Core ML and Vision frameworks.</li>
+                <li><strong>No Cloud AI:</strong> Unlike apps that send your documents to cloud AI services (ChatGPT, Google Cloud, AWS, etc.), Secret PDF processes everything locally.</li>
+                <li><strong>Offline Functionality:</strong> All AI features work completely offline. No internet connection is required or used.</li>
+                <li><strong>No Training Data:</strong> Your documents are never used to train AI models or improve our systems. The AI models are static and run entirely on your device.</li>
+            </ul>
+
+            <h3>What This Means</h3>
+            <p>When you use features like "Extract Text" or "Summarize Document," the AI analysis happens entirely on your iPhone, iPad, or Mac. The document content never leaves your device, and we have no visibility into what you're analyzing.</p>
+
+            <div class="highlight-box">
+                <h4>🤖 AI Privacy Guarantee</h4>
+                <p>Many "AI PDF tools" upload your documents to cloud services like OpenAI, Google, or Amazon. <strong>Secret PDF never does this.</strong> Every AI feature is powered by on-device machine learning that runs locally, ensuring your documents remain completely private.</p>
+            </div>
+        </section>
+
+        <section id="permissions" class="policy-section">
+            <h2>6. Device Permissions</h2>
+            
+            <p>Secret PDF may request the following device permissions. All permissions are optional and only used for specific features:</p>
+
+            <h3>Camera Access</h3>
+            <p><strong>Why we need it:</strong> To scan documents using your device's camera and convert them to PDFs.</p>
+            <p><strong>How we use it:</strong> Camera access is only used when you actively initiate the document scanner. Photos are processed locally and never uploaded anywhere. You can deny camera access and still use all other features of the app.</p>
+
+            <h3>Photo Library Access</h3>
+            <p><strong>Why we need it:</strong> To import images and convert them to PDFs, or to save exported PDFs to your photo library.</p>
+            <p><strong>How we use it:</strong> We only access photos you explicitly select. On iOS 14+, you can grant access to specific photos only.</p>
+
+            <h3>Files/Documents Access</h3>
+            <p><strong>Why we need it:</strong> To open, edit, and save PDF files stored on your device or in iCloud Drive.</p>
+            <p><strong>How we use it:</strong> We only access files you explicitly open through the app. We don't scan or index your file system.</p>
+
+            <h3>Notifications (Optional)</h3>
+            <p><strong>Why we need it:</strong> To notify you when background operations (like large file conversions) are complete.</p>
+            <p><strong>How we use it:</strong> Local notifications only. We don't send push notifications or marketing messages.</p>
+
+            <p><strong>Note:</strong> You can revoke any permission at any time through your device's Settings app.</p>
+        </section>
+
+        <section id="third-party" class="policy-section">
+            <h2>7. Third-Party Services</h2>
+            
+            <p>Secret PDF does <strong>NOT</strong> integrate with any third-party services, SDKs, or tracking tools, including:</p>
+
+            <ul>
+                <li>No advertising networks (no ads in the app)</li>
+                <li>No analytics platforms (Google Analytics, Firebase, Mixpanel, etc.)</li>
+                <li>No crash reporting services (Crashlytics, Sentry, etc.)</li>
+                <li>No cloud storage providers (beyond optional iCloud, which is controlled by you)</li>
+                <li>No social media integrations</li>
+                <li>No AI/ML cloud services</li>
+            </ul>
+
+            <h3>App Store</h3>
+            <p>Secret PDF is distributed exclusively through the Apple App Store. When you download or purchase the app, you're subject to Apple's Privacy Policy, not ours. Apple may collect information about your download and purchase, but this information is not shared with us in a personally identifiable form.</p>
+
+            <h3>Payment Processing</h3>
+            <p>All in-app purchases are processed by Apple through the App Store. We never see or store your payment information. Apple's privacy policy governs how they handle purchase data.</p>
+        </section>
+
+        <section id="children" class="policy-section">
+            <h2>8. Children's Privacy</h2>
+            
+            <p>Secret PDF does not knowingly collect any information from children or anyone else. The app is appropriate for users of all ages because it doesn't collect personal data from any users, regardless of age.</p>
+
+            <p>Parents and guardians can confidently allow children to use Secret PDF knowing that:</p>
+            <ul>
+                <li>No personal information is collected</li>
+                <li>No account creation is required</li>
+                <li>No online interactions or communications are possible through the app</li>
+                <li>All processing happens locally on the device</li>
+            </ul>
+        </section>
+
+        <section id="changes" class="policy-section">
+            <h2>9. Changes to This Policy</h2>
+            
+            <p>We may update this privacy policy from time to time to reflect changes in our practices or legal requirements. However, our core commitment to privacy will never change:</p>
+
+            <ul>
+                <li>We will never start collecting personal data without major notification and your consent</li>
+                <li>Any changes will be posted on this page with an updated "Last Updated" date</li>
+                <li>Significant changes will be announced in app update notes</li>
+                <li>You can always review this policy at <a href="https://secretpdf.app/privacy.html">secretpdf.app/privacy.html</a></li>
+            </ul>
+
+            <p><strong>Your continued use of Secret PDF after any changes constitutes acceptance of the updated policy.</strong></p>
+        </section>
+
+        <section id="contact" class="policy-section">
+            <h2>10. Contact Us</h2>
+            
+            <p>If you have any questions, concerns, or requests regarding this privacy policy or how we handle privacy, please contact us:</p>
+
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:xixu@yahoo.com">xixu@yahoo.com</a></li>
+            </ul>
+
+            <p>We typically respond to privacy inquiries within 48 hours.</p>
+        </section>
+
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <h2>Questions About Privacy?</h2>
+            <p>We're here to help. Reach out if you have any concerns or questions about how Secret PDF protects your privacy.</p>
+            <a href="mailto:xixu@yahoo.com">Contact Support</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>📄 Secret PDF</strong> - Developed with ❤️ in New York, NY</p>
+            <p>© 2026 Secret PDF AI. All rights reserved.</p>
+            <p style="margin-top: 1.5rem;">
+                <a href="webindex.html">Home</a> · 
+                <a href="privacy.html">Privacy Policy</a> · 
+                <a href="mailto:xixu@yahoo.com">Contact</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
+
